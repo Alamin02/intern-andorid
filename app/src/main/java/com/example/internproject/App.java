@@ -6,6 +6,7 @@ import com.parse.Parse;
 import com.parse.ParseInstallation;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -19,11 +20,6 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
 
-
-        people.add(new Person("Alu", "16"));
-        people.add(new Person("Alu", "16"));
-        people.add(new Person("Alu", "16"));
-
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId(getString(R.string.back4app_app_id))
                 // if defined
@@ -33,6 +29,7 @@ public class App extends Application {
         );
 
         ParseInstallation.getCurrentInstallation().saveInBackground();
+        get_json();
 
 
     }
@@ -40,7 +37,7 @@ public class App extends Application {
     public void get_json(){
         String json;
         try {
-            InputStream is = getAssets().open("data.json");
+            InputStream is = this.getAssets().open("data.json");
             int size = is.available();
             byte[] buffer = new byte[size];
 
@@ -48,8 +45,16 @@ public class App extends Application {
             is.close();
 
             json = new String(buffer, "UTF-8");
+            JSONArray jsonArray = new JSONArray(json);
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject obj = jsonArray.getJSONObject(i);
+                people.add(new Person(obj.getString("name"), obj.getString("designation")));
+            }
 
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
             e.printStackTrace();
         }
     }
