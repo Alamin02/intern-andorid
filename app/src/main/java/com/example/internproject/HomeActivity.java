@@ -21,11 +21,14 @@ public class HomeActivity extends AppCompatActivity {
 
         BottomNavigationView menu = findViewById(R.id.navigationMenu);
 
+        Fragment defaultFragment;
+        defaultFragment = new LocalFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, defaultFragment).commit();
+
+
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                TextView log2 = findViewById(R.id.logger);
-
                 Fragment newFragment;
 
                 switch (menuItem.getItemId()){
@@ -34,10 +37,8 @@ public class HomeActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, newFragment).commit();
                         return true;
                     case R.id.navigation_server:
-                        log2.setText("Server");
                         return true;
                     case R.id.navigation_more:
-                        log2.setText("More");
                         return true;
                 }
 
