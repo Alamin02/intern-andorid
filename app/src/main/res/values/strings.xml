@@ -8,4 +8,18 @@
     <!-- Change the following strings as required -->
     <string name="back4app_app_id">t4edcvK1fwpccLCN1TyBheqetgJFOPlC3uXEgM3w</string>
     <string name="back4app_client_key">u5Cre86SBwfUDUxY1qcALjjV0bwDiYDGuqAkWT9t</string>
+    <string name="avatar">Avatar</string>
+    <string name="intern_app">Intern App</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="don_t_have_acc">Don\'t Have an account? Signup!</string>
+    <string name="full_name">Full Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="already_have_acc">Already Have an Account? Sign In!</string>
+    <string name="designation">Designation</string>
+    <string name="textview">TextView</string>
+
 </resources>

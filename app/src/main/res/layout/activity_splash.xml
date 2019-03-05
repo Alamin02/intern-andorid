@@ -18,7 +18,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Intern App"
+        android:text="@string/intern_app"
         android:textColor="#FFF"
         android:textSize="36sp"
         app:fontFamily="monospace"
@@ -35,7 +35,8 @@
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="@+id/textView"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:srcCompat="@drawable/einstein" />
+        app:srcCompat="@drawable/einstein"
+        android:contentDescription="@string/avatar" />
 
     <ProgressBar
         android:id="@+id/progressBar"

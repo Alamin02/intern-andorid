@@ -16,14 +16,15 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:ems="10"
-        android:hint="Full Name"
+        android:hint="@string/full_name"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/inputEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="packed"
+        />
 
     <EditText
         android:id="@+id/inputEmail"
@@ -31,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/inputPassword"
         app:layout_constraintEnd_toEndOf="@+id/inputName"
@@ -45,7 +46,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="33dp"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/matchPassword"
         app:layout_constraintEnd_toEndOf="@+id/inputEmail"
@@ -60,7 +61,7 @@
         android:layout_marginTop="34dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
-        android:hint="Confirm Password"
+        android:hint="@string/confirm_password"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/signInLinkText"
         app:layout_constraintEnd_toEndOf="@+id/inputPassword"
@@ -75,7 +76,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="36dp"
-        android:text="Sign Up"
+        android:text="@string/sign_up"
         app:layout_constraintStart_toStartOf="@+id/matchPassword"
         app:layout_constraintTop_toBottomOf="@+id/matchPassword" />
 
@@ -88,7 +89,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="32dp"
-        android:text="Already Have an Account? Sign In!"
+        android:text="@string/already_have_acc"
         android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
