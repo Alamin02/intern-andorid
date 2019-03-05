@@ -1,22 +1,50 @@
 [
     {
-      "name": "Al Amin",
+      "name": "Md Al Amin",
       "designation": "Intern",
-      "team": "Android"
+      "team": "Android",
+      "imageUrl": "..."
     },
     {
-      "name": "Al Amin",
+      "name": "Farhat Shahriar",
       "designation": "Intern",
-      "team": "Android"
+      "team": "Web",
+      "imageUrl": "..."
     },
     {
-      "name": "Al Amin",
-      "designation": "Intern",
-      "team": "Android"
+      "name": "Jessica Adhora",
+      "designation": "Jr. Engineer",
+      "team": "Android",
+      "imageUrl": "..."
     },
     {
-      "name": "Al Amin",
+      "name": "Imran Hossain",
       "designation": "Intern",
-      "team": "Android"
+      "team": "Digital Marketing",
+      "imageUrl": "..."
+    },
+    {
+      "name": "Safayet Karim",
+      "designation": "Jr. Engineer",
+      "team": "Web",
+      "imageUrl": "..."
+    },
+    {
+      "name": "Alamin Hossain",
+      "designation": "Intern",
+      "team": "Android",
+      "imageUrl": "..."
+    },
+    {
+      "name": "Shofi Mahmud",
+      "designation": "Jr. Engineer",
+      "team": "Android",
+      "imageUrl": "..."
+    },
+    {
+      "name": "Safia Tabassum",
+      "designation": "Intern",
+      "team": "Digital Marketing",
+      "imageUrl": "..."
     }
 ]

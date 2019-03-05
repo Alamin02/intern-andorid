@@ -1,27 +1,61 @@
 package com.example.internproject;
 
+import java.util.Comparator;
+
 public class Person {
     private String name;
-    private String age;
+    private String team;
+    private String imageUrl;
+    private String designation;
 
-    public Person(String name, String age){
+    Person(String name, String designation, String team, String imageUrl){
         this.name = name;
-        this.age = age;
+        this.designation = designation;
+        this.team = team;
+        this.imageUrl = imageUrl;
     }
 
-    public String getName() {
+    String getName() {
         return name;
-    }
-
-    public String getAge() {
-        return age;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setAge(String age) {
-        this.age = age;
+    String getTeam() {
+        return team;
     }
+
+    public void setTeam(String team) {
+        this.team = team;
+    }
+
+    String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+
+    static Comparator<Person> personDesignationComparator = new Comparator<Person>() {
+
+        @Override
+        public int compare(Person o1, Person o2) {
+            String designation1 = o1.getDesignation();
+            String designation2 = o2.getDesignation();
+
+            return designation1.compareTo(designation2);
+        }
+    };
+
 }

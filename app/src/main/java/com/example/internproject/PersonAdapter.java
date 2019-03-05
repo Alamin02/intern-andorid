@@ -8,27 +8,48 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonViewHolder> {
 
     private ArrayList<Person> people;
+    private ArrayList<String> designations = new ArrayList<>();
+    private List<Integer> positions = new ArrayList<>();
 
-    public PersonAdapter(Context context, ArrayList<Person> list){
+
+    PersonAdapter(Context context, ArrayList<Person> list){
         people = list;
+        Collections.sort(people, Person.personDesignationComparator);
+
+        if (people.size() > 0){
+             designations.add(people.get(0).getDesignation());
+             positions.add(0);
+        }
+
+        for (int i = 1; i < people.size(); i++){
+            if(people.get(i).getDesignation().equals(people.get(i-1).getDesignation())){
+                continue;
+            }
+            designations.add(people.get(i).getDesignation());
+            positions.add(i);
+        }
     }
 
-    public class PersonViewHolder extends RecyclerView.ViewHolder {
+    class PersonViewHolder extends RecyclerView.ViewHolder {
         TextView displayName;
-        TextView nameLabel;
+        TextView displayDesignation;
+        TextView displayTeam;
+        TextView displayCategory;
 
-        public PersonViewHolder(@NonNull View itemView) {
+        PersonViewHolder(@NonNull View itemView) {
             super(itemView);
 
             displayName = itemView.findViewById(R.id.displayName);
-            nameLabel = itemView.findViewById(R.id.nameLabel);
+            displayDesignation = itemView.findViewById(R.id.displayDesignation);
+            displayTeam = itemView.findViewById(R.id.displayTeam);
+            displayCategory = itemView.findViewById(R.id.displayCategory);
         }
     }
 
@@ -36,7 +57,6 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
     @Override
     public PersonViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.row_layout, viewGroup, false);
-
         return new PersonViewHolder(view);
     }
 
@@ -44,8 +64,19 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
     public void onBindViewHolder(@NonNull PersonViewHolder viewHolder, int i) {
 
         viewHolder.itemView.setTag(people.get(i));
+
+        // Set the category title visible for the first element and remove for the rest
+        if(positions.contains(i)) {
+            viewHolder.displayCategory.setText(designations.get(positions.indexOf(i)));
+        }
+        else {
+            viewHolder.displayCategory.setVisibility(View.GONE);
+        }
+
         viewHolder.displayName.setText(people.get(i).getName());
-        viewHolder.nameLabel.setText("Name: ");
+        viewHolder.displayDesignation.setText(people.get(i).getDesignation());
+        viewHolder.displayTeam.setText(people.get(i).getTeam());
+
     }
 
     @Override

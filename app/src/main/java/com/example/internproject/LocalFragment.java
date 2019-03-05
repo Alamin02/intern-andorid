@@ -40,7 +40,9 @@ public class LocalFragment extends Fragment {
         layoutManager = new LinearLayoutManager(this.getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
-        myAdapter = new PersonAdapter(this.getActivity(), App.people);
+        ArrayList people = App.people;
+
+        myAdapter = new PersonAdapter(this.getActivity(), people);
         recyclerView.setAdapter(myAdapter);
     }
 }

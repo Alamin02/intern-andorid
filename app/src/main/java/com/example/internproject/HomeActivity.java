@@ -21,11 +21,12 @@ public class HomeActivity extends AppCompatActivity {
 
         BottomNavigationView menu = findViewById(R.id.navigationMenu);
 
+        // Set Local Fragment as default when no navigation item is selected
         Fragment defaultFragment;
         defaultFragment = new LocalFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, defaultFragment).commit();
 
-
+        // Change Fragment on Navigation Item selection
         menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -36,9 +37,15 @@ public class HomeActivity extends AppCompatActivity {
                         newFragment = new LocalFragment();
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, newFragment).commit();
                         return true;
+
                     case R.id.navigation_server:
+                        newFragment = new ServerFragment();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, newFragment).commit();
                         return true;
+
                     case R.id.navigation_more:
+                        newFragment = new MoreFragment();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, newFragment).commit();
                         return true;
                 }
 

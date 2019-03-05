@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,8 @@ public class SignupActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.setTitle("Sign Up");
+
         setContentView(R.layout.activity_signup);
 
         // On click listener to 'already have id' text
@@ -46,6 +49,7 @@ public class SignupActivity extends AppCompatActivity {
                 EditText emailInput = findViewById(R.id.inputEmail);
                 EditText passwordInput = findViewById(R.id.inputPassword);
                 EditText matchPassword = findViewById(R.id.matchPassword);
+                ProgressBar signupSpinner = findViewById(R.id.signupSpinner);
 
                 if (TextUtils.isEmpty(usernameInput.getText().toString())){
                     usernameInput.setError("Please Enter an Username!");
@@ -63,6 +67,9 @@ public class SignupActivity extends AppCompatActivity {
                     matchPassword.setError("Please Enter Password Again!");
                     return;
                 }
+                else {
+                    signupSpinner.setVisibility(View.VISIBLE);
+                }
 
                 user.setUsername(usernameInput.getText().toString());
                 user.setEmail(emailInput.getText().toString());
@@ -71,6 +78,7 @@ public class SignupActivity extends AppCompatActivity {
 
                 if (!passwordInput.getText().toString().equals(matchPassword.getText().toString())) {
                     Toast.makeText(SignupActivity.this, "Oops! Password Mismatch!", Toast.LENGTH_LONG).show();
+                    signupSpinner.setVisibility(View.INVISIBLE);
                 }
                 else {
                     user.signUpInBackground(new SignUpCallback() {
@@ -86,6 +94,8 @@ public class SignupActivity extends AppCompatActivity {
                             } else {
                                 ParseUser.logOut();
                                 Toast.makeText(SignupActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                                ProgressBar signupSpinner = findViewById(R.id.signupSpinner);
+                                signupSpinner.setVisibility(View.INVISIBLE);
                             }
                         }
                     });

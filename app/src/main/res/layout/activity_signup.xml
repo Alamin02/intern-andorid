@@ -62,7 +62,7 @@
         android:ems="10"
         android:hint="Confirm Password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/signInLinkText"
         app:layout_constraintEnd_toEndOf="@+id/inputPassword"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/inputPassword"
@@ -93,5 +93,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/signupSpinner"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="38dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/signup"
+        app:layout_constraintStart_toEndOf="@+id/signup"
+        app:layout_constraintTop_toTopOf="@+id/signup" />
 
 </android.support.constraint.ConstraintLayout>

@@ -2,16 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/navigation_local"
-        android:icon="@drawable/idea"
+        android:icon="@drawable/ic_action_name"
         android:title="Local"/>
 
     <item
         android:id="@+id/navigation_server"
-        android:icon="@drawable/idea"
+        android:icon="@drawable/ic_server"
         android:title="Server"/>
 
     <item
         android:id="@+id/navigation_more"
-        android:icon="@drawable/idea"
+        android:icon="@drawable/ic_settings"
         android:title="More"/>
 </menu>
