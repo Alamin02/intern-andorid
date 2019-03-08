@@ -1,18 +1,39 @@
 package com.example.internproject;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
 import java.util.Comparator;
 
+@Entity //(tableName = "people")
 public class Person {
+
+    @PrimaryKey
+    private int id;
+
+    @ColumnInfo(name = "name")
     private String name;
+
+    @ColumnInfo(name = "team")
     private String team;
+
+    @ColumnInfo(name = "imageUrl")
     private String imageUrl;
+
+    @ColumnInfo(name = "designation")
     private String designation;
 
-    Person(String name, String designation, String team, String imageUrl){
+
+    Person(int id, String name, String designation, String team, String imageUrl){
+        this.id = id;
         this.name = name;
         this.designation = designation;
         this.team = team;
         this.imageUrl = imageUrl;
+    }
+
+    Person(){
     }
 
     String getName() {
@@ -47,6 +68,7 @@ public class Person {
         this.designation = designation;
     }
 
+
     static Comparator<Person> personDesignationComparator = new Comparator<Person>() {
 
         @Override
@@ -58,4 +80,11 @@ public class Person {
         }
     };
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

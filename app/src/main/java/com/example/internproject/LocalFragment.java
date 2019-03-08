@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class LocalFragment extends Fragment {
@@ -40,7 +41,7 @@ public class LocalFragment extends Fragment {
         layoutManager = new LinearLayoutManager(this.getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
-        ArrayList people = App.people;
+        List<Person> people = App.people;
 
         myAdapter = new PersonAdapter(this.getActivity(), people);
         recyclerView.setAdapter(myAdapter);

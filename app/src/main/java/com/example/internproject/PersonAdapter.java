@@ -14,12 +14,12 @@ import java.util.List;
 
 public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonViewHolder> {
 
-    private ArrayList<Person> people;
+    private List<Person> people;
     private ArrayList<String> designations = new ArrayList<>();
     private List<Integer> positions = new ArrayList<>();
 
 
-    PersonAdapter(Context context, ArrayList<Person> list){
+    PersonAdapter(Context context, List<Person> list){
         people = list;
         Collections.sort(people, Person.personDesignationComparator);
 
